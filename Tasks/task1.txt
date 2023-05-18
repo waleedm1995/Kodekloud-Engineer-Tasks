@@ -8,6 +8,6 @@ b. Copy all those files along with their parent directory structure to location 
 
 c. Please make sure not to copy the entire /var/www/html/news directory content.
 
-```bash
+```
 find /var/www/html/news/ -name *.js -type f | xargs -i cp --parents {} /news
 ```
