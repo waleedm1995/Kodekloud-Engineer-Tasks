@@ -7,3 +7,7 @@ a. On App Server 1 at location /var/www/html/news find out all files (not direct
 b. Copy all those files along with their parent directory structure to location /news on same server.
 
 c. Please make sure not to copy the entire /var/www/html/news directory content.
+
+```bash
+find /var/www/html/news/ -name *.js -type f | xargs -i cp --parents {} /news
+```
