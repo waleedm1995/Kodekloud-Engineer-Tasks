@@ -1,13 +1,14 @@
-During a routine security audit, the team identified an issue on the Nautilus App Server. Some malicious content was identified within the website code. After digging into the issue they found that there might be more infected files. Before doing a cleanup they would like to find all similar files and copy them to a safe location for further investigation. Accomplish the task as per the following requirements:
+The Nautilus DevOps team is ready to launch a new application, which they will deploy on app servers in Stratos Datacenter. They are expecting significant traffic/usage of squid on app servers after that. This will generate massive logs, creating huge log files. To utilise the storage efficiently, they need to compress the log files and need to rotate old logs. Check the requirements shared below:
 
 
 
-a. On App Server 1 at location /var/www/html/news find out all files (not directories) having .js extension.
+a. In all app servers install squid package.
 
-b. Copy all those files along with their parent directory structure to location /news on same server.
+b. Using logrotate configure squid logs rotation to monthly and keep only 3 rotated logs.
 
-c. Please make sure not to copy the entire /var/www/html/news directory content.
+(If by default log rotation is set, then please update configuration as needed)
 
 ```bash
-find /var/www/html/news/ -name *.js -type f | xargs -i cp --parents {} /news
+yum install squid -y
+vi /etc/logrotate.d/squid   #set monthly and rotate 3
 ```
