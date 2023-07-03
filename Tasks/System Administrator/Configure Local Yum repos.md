@@ -16,6 +16,6 @@ enabled = 1
 gpgcheck = 0
 yum repolist
 yum clean all
-yum --enablerepo=local_yum install samba -y
+yum install --disablerepo="*" --enablerepo="local_yum" samba
 yum list samba
 ```
