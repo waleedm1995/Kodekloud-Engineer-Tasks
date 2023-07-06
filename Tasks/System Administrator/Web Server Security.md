@@ -10,4 +10,6 @@ vi /etc/httpd/conf/httpd.conf
   ServerTokens Prod
   ServerSignature Off 
   # Options Indexes FollowSymLinks
+systemctl restart httpd
+ curl -I http://stapp01:8080
 ```
